@@ -7,8 +7,8 @@
 
 2. **Clone the Repository:**
    ```bash
-   git clone https://github.com/igorambonatti/##.git
-   cd ##
+   git clone https://github.com/igorambonatti/harry_potter.git
+   cd harry_potter
    ```
 
 3. **Install Dependencies:**
