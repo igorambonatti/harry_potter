@@ -1,14 +1,5 @@
 import axios from "axios";
-
-const BASE_URL = "https://hp-api.onrender.com/api";
-
-const api = axios.create({
-  baseURL: BASE_URL,
-  timeout: 10000,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+import { api } from "./api";
 
 export const fetchCharacters = async () => {
   try {
