@@ -26,7 +26,7 @@ export const CharacterCard: React.FC<CharacterProps> = ({ character }) => {
     <Link to={`/characters/${character.id}`} className="no-underline">
       <div
         key={character.id}
-        className="min-h-[470px] bg-[#1e1e1e] shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative border border-gray-700"
+        className="min-h-[470px] bg-[#1e1e1e] shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative border border-yellow-500"
       >
         <img
           alt={character.name}
