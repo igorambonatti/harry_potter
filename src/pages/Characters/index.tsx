@@ -33,15 +33,13 @@ export const Characters = () => {
   const filteredCharacters = showFavorites
     ? favorites
     : filter
-    ? characters.filter((character) => character.house === filter)
+    ? characters?.filter((character) => character.house === filter)
     : characters;
 
-  const pageCount = Math.ceil(filteredCharacters.length / itemsPerPage);
+  const pageCount = Math.ceil(filteredCharacters?.length! / itemsPerPage);
   const offset = currentPage * itemsPerPage;
-  const currentCharacters = filteredCharacters.slice(
-    offset,
-    offset + itemsPerPage
-  );
+  const currentCharacters =
+    filteredCharacters?.slice(offset, offset + itemsPerPage) || null;
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
@@ -74,7 +72,7 @@ export const Characters = () => {
 
         {(filter || showFavorites) && (
           <button
-            className="py-2 px-4 rounded-md text-white bg-red-500 h-10"
+            className="py-2 px-4 rounded-md text-white bg-red-600 h-10"
             onClick={clearFilters}
           >
             Clear
@@ -84,7 +82,7 @@ export const Characters = () => {
 
       <CharacterList characters={currentCharacters} />
 
-      {filteredCharacters.length > itemsPerPage && (
+      {filteredCharacters && filteredCharacters.length > itemsPerPage && (
         <ReactPaginate
           previousLabel={""}
           nextLabel={""}

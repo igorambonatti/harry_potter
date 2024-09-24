@@ -3,7 +3,7 @@ import { fetchCharacters } from "../services/harry_potter";
 import { ICharacter } from "../types/character";
 
 interface CharacterContextType {
-  characters: ICharacter[];
+  characters: ICharacter[] | null;
   favorites: ICharacter[];
   toggleFavorite: (character: ICharacter) => void;
 }
@@ -22,7 +22,7 @@ export const useCharacters = () => {
 export const CharacterProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [characters, setCharacters] = useState<ICharacter[]>([]);
+  const [characters, setCharacters] = useState<ICharacter[] | null>(null);
   const [favorites, setFavorites] = useState<ICharacter[]>(() => {
     const savedFavorites = localStorage.getItem("@harry_potter:favorites");
     return savedFavorites ? JSON.parse(savedFavorites) : [];
