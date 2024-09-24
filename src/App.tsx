@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import HarryPotterLogo from "./assets/harry_potter.svg";
+import HarryPotterLogo from "./assets/harry-potter.svg";
 import AppProvider from "./context/AppProvider";
 import AppRoutes from "./routes/Routes";
 
