@@ -5,9 +5,7 @@ import { ICharacter } from "../types/character";
 interface CharacterContextType {
   characters: ICharacter[];
   favorites: ICharacter[];
-  house: string;
   toggleFavorite: (character: ICharacter) => void;
-  setHouse: (house: string) => void;
 }
 
 const CharacterContext = createContext<CharacterContextType | undefined>(
@@ -29,7 +27,6 @@ export const CharacterProvider: React.FC<{ children: React.ReactNode }> = ({
     const savedFavorites = localStorage.getItem("@harry_potter:favorites");
     return savedFavorites ? JSON.parse(savedFavorites) : [];
   });
-  const [house, setHouse] = useState<string>("Gryffindor");
 
   useEffect(() => {
     fetchCharacters().then((data) => setCharacters(data));
@@ -49,7 +46,7 @@ export const CharacterProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <CharacterContext.Provider
-      value={{ characters, favorites, house, toggleFavorite, setHouse }}
+      value={{ characters, favorites, toggleFavorite }}
     >
       {children}
     </CharacterContext.Provider>
